@@ -1,8 +1,8 @@
 # Nuggets — A Multiplayer Terminal Mining Game (C++)
 
-> Originally built as final project for Dartmouth's COSC 50, then  rewritten from C to C++ for performance, type-safety, and clarity.
+> Originally built as final project for Dartmouth's COSC 50. This repository is a complete C++ rewrite of an original C implementation while preserving the exact game behavior and wire protocol.
 
-Real-time, online multiplayer mining game for Terminal. Players explore mazes of rooms and passages and race to collect gold nuggets; server keeps every client's view in sync over a custom UDP protocol. Up to 26 players plus a spectator can share a single game, each rendered live with `ncurses` and a per-player line-of-sight fog of war. This repository is a complete C++ rewrite of an original C implementation while preserving the exact game behavior and wire protocol.
+Real-time, online multiplayer mining game for Terminal. Players explore mazes of rooms and passages and race to collect gold nuggets; server keeps every client's view in sync over a custom UDP protocol. Up to 26 players plus a spectator can share a single game, each rendered live with `ncurses` and a per-player line-of-sight fog of war. 
 
 <img width="505" height="336" alt="Game Demo" src="https://github.com/user-attachments/assets/593ec8d0-1821-476d-a6ac-d164e32695e9" />
 
