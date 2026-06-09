@@ -1,4 +1,4 @@
-# Nuggets — A Multiplayer Terminal Mining Game (C++)
+# Nuggets: Multiplayer Terminal Mining Game (C++)
 
 > Originally built as final project for Dartmouth's COSC 50. This repository is a complete C++ rewrite of an original C implementation while preserving the exact game behavior and wire protocol.
 
