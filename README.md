@@ -1,8 +1,8 @@
 # Nuggets: Multiplayer Terminal Mining Game (C++)
 
-> Originally built as final project for Dartmouth's COSC 50. This repository is a complete C++ rewrite of an original C implementation while preserving the exact game behavior and wire protocol.
+> Originally built in C as final project for Dartmouth's COSC 50 (Software Design & Implementation), rewritten in C++ for performance while preserving game behavior & wire protocol.
 
-Real-time, online multiplayer mining game for Terminal. Players explore mazes of rooms and passages and race to collect gold nuggets; server keeps every client's view in sync over a custom UDP protocol. Up to 26 players plus a spectator can share a single game, each rendered live with `ncurses` and a per-player line-of-sight fog of war. 
+Real-time, online multiplayer mining game for Terminal. Players explore mazes of rooms & passages and race to collect gold nuggets; the server keeps every client's view in sync over UDP protocol. Up to 26 players plus a spectator can share a single game, each rendered live with `ncurses` and a per-player line-of-sight fog of war. 
 
 <img width="505" height="336" alt="Game Demo" src="https://github.com/user-attachments/assets/593ec8d0-1821-476d-a6ac-d164e32695e9" />
 
@@ -50,31 +50,23 @@ scoreboard is broadcast to everyone.
 
 ---
 
-## Base Functionalities
+## Features
 
-- **Client–server multiplayer** over a custom UDP protocol:
+**UDP protocol**
 
   | Direction | Messages |
   |-----------|----------|
   | Client → Server | `PLAY <name>`, `SPECTATE`, `KEY <char>` |
   | Server → Client | `OK <letter>`, `GRID <rows> <cols>`, `GOLD <collected> <purse> <remaining>`, `DISPLAY\n<map>`, `QUIT <text>`, `ERROR <text>` |
 
-- **26 concurrent players** (letters `A`–`Z`) plus **one spectator** who sees the
-  entire map.
-- **Authoritative server** holding all game state: the grid, every player's
-  position/score, and 250 gold nuggets randomly split across 10–30 piles.
-- **Line-of-sight visibility** — each player only sees what a ray-cast line of
+- 26 concurrent players (letters `A`–`Z`) + one spectator at any given time
+- Authoritative server manages game state: the grid, every player's
+  position/score, and 250 gold nuggets randomly split across 10–30 piles
+- Line-of-sight visibility — each player only sees what a ray-cast line of
   sight can reach; previously explored terrain stays revealed, but gold and other
-  players appear only while in view.
-- **`ncurses` client** with a live map, a status/gold line, and transient
-  error/notification messages.
-- **End-of-game scoreboard** ranking players by nuggets collected.
+  players appear only while in view
 
----
-
-## Rewrite Motivation & Improvements
-
-The original C version worked but left performance on the table. My C++ rewrite is a faithful translation of the game logic with targeted upgrades:
+The original version worked but left performance on the table; this rewrite is a faithful translation of the game logic with targeted upgrades:
 
 - Opaque structs + free functions became `GridCell`,
   `Grid`, and `Player` classes; manual `malloc`/`free` became RAII destructors and
