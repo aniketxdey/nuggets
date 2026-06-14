@@ -52,7 +52,7 @@ scoreboard is broadcast to everyone.
 
 ## Features
 
-**UDP protocol**
+### UDP protocol
 
   | Direction | Messages |
   |-----------|----------|
@@ -65,6 +65,8 @@ scoreboard is broadcast to everyone.
 - Line-of-sight visibility — each player only sees what a ray-cast line of
   sight can reach; previously explored terrain stays revealed, but gold and other
   players appear only while in view
+
+### Performance
 
 The original version worked but left performance on the table; this rewrite is a faithful translation of the game logic with targeted upgrades:
 
